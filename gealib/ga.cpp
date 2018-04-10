@@ -27,6 +27,15 @@ void ga::add_parameter(parameter param)
 	params.push_back(param);
 }
 
+// Constructs and then adds a parameter to the genetic algorithm
+
+parameter gealib::ga::add_parameter(string name, float_t min, float_t max, float_t step)
+{
+	parameter p(name, min, max, step);
+	params.push_back(p);
+	return p;
+}
+
 // Gets the mutation rate
 float_t ga::get_mutation_rate()
 {

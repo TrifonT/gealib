@@ -37,6 +37,9 @@ namespace gealib
 		// Adds a parameter to the genetic algorithm
 		void add_parameter(parameter param);
 
+		// Constructs and then adds a parameter to the genetic algorithm
+		parameter add_parameter(string name, float_t min, float_t max, float_t step);
+
 		// Gets the mutation rate
 		float_t get_mutation_rate();
 

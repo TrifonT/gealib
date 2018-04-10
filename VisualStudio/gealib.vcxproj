@@ -160,10 +160,6 @@
     <ClCompile Include="..\gealib\_example.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="gealib.header" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\gealib\chromosome.h" />
     <ClInclude Include="..\gealib\crossover.h" />
     <ClInclude Include="..\gealib\crossover_onepoint.h" />

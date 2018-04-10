@@ -59,10 +59,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="gealib.header" />
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\gealib\ga.h">
       <Filter>Header Files</Filter>
     </ClInclude>
