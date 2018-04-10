@@ -28,14 +28,12 @@ void ga::add_parameter(parameter param)
 }
 
 // Gets the mutation rate
-
 float_t ga::get_mutation_rate()
 {
 	return mrate;
 }
 
 // Sets the mutation rate
-
 void ga::set_mutation_rate(float_t rate)
 {
 	assert(rate >= 0 && rate <= 1.0);
@@ -43,14 +41,12 @@ void ga::set_mutation_rate(float_t rate)
 }
 
 // Gets the crossover rate
-
 float_t ga::get_crossover_rate()
 {
 	return crate;
 }
 
 // Sets the crossover rate
-
 void ga::set_crossover_rate(float_t rate)
 {
 	assert(rate > 0 && rate <= 1.0);
@@ -58,14 +54,12 @@ void ga::set_crossover_rate(float_t rate)
 }
 
 // Gets the elite rate
-
 float_t ga::get_elite_rate()
 {
 	return erate;
 }
 
 // Sets the elite rate
-
 void ga::set_elite_rate(float_t rate)
 {
 	assert(rate >= 0 && rate < 1.0);
@@ -73,63 +67,54 @@ void ga::set_elite_rate(float_t rate)
 }
 
 // Gets population size
-
 size_t ga::get_population_size()
 {
 	return popsize;
 }
 
 // Sets population size
-
 void ga::set_population_size(size_t pop_size)
 {
 	popsize = pop_size;
 }
 
 // Gets fitness function
-
 fitness_function ga::get_fitness_function()
 {
 	return fitfunction;
 }
 
 // Sets fitness function
-
 void ga::set_fitness_function(fitness_function function)
 {
 	fitfunction = function;
 }
 
 // Gets the crossover method
-
 crossover& ga::get_crossover()
 {
 	return crossover_ref;
 }
 
 // Sets the crossover method
-
 void ga::set_crossover(crossover & crossover)
 {
 	crossover_ref = crossover;
 }
 
 // Gets the mutation method
-
 mutation & ga::get_mutation()
 {
 	return mutation_ref;
 }
 
 // Sets the mutation method
-
 void ga::set_mutation(mutation & mutation)
 {
 	mutation_ref = mutation;
 }
 
 // Initializes the ga instance before optimization
-
 void gealib::ga::init()
 {
 	if (params.size() == 0)
@@ -163,8 +148,7 @@ void gealib::ga::init()
 	});
 }
 
-// Evaluates current population
-
+// Evaluates then fitness function for every member of the current population
 void gealib::ga::evaluate()
 {
 	assert(fitfunction != nullptr);
@@ -188,7 +172,6 @@ void gealib::ga::evaluate()
 }
 
 // Sorts current population by the fitness function result
-
 void gealib::ga::sort_current()
 {
 	std::sort(current.begin(), current.end(),
@@ -196,6 +179,7 @@ void gealib::ga::sort_current()
 	{ return (a->fitness > b->fitness); });
 }
 
+// Performs an iteration step
 void gealib::ga::step()
 {
 	chromo_vec childs;
@@ -227,9 +211,7 @@ void gealib::ga::step()
 			mref.mutate(childs[i]);
 	});
 
-
-
-	// ser children as current population
+	// set children as current population
 	current.assign(childs.begin(), childs.end());
 
 	// evaluate fitness function for current population
@@ -249,7 +231,6 @@ void gealib::ga::step()
 }
 
 // Runs optimization
-
 void gealib::ga::run(size_t iterations, size_t disp_progress, bool show_results)
 {
 	init();
@@ -271,7 +252,6 @@ void gealib::ga::run(size_t iterations, size_t disp_progress, bool show_results)
 }
 
 // Displays progress among iterations
-
 void gealib::ga::display_progress(size_t iteration)
 {
 	cout << "Iteration " << setw(5) << right << iteration;
@@ -280,7 +260,6 @@ void gealib::ga::display_progress(size_t iteration)
 }
 
 // Prints optimized parameters
-
 void gealib::ga::print_params()
 {
 	cout << endl << endl << "-------------------------------" << endl;
@@ -292,7 +271,5 @@ void gealib::ga::print_params()
 		cout << "| " << setw(8) << right << params[i].name << "= | ";
 		cout << setw(15) << setprecision(6) << fixed << right << params[i].value << " |" << endl;		
 	}
-	cout << "-------------------------------" << endl;
-	
+	cout << "-------------------------------" << endl;	
 }
-
