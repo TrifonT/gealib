@@ -1,6 +1,13 @@
 #ifndef GEALIB_H
 #define GEALIB_H
 
+namespace gealib {
+	class chromosome;
+	class parameter;
+	class ga;
+}
+
+
 #include "typedefs.h"
 #include "random_generator.h"
 #include "util.h"
