@@ -45,6 +45,31 @@ int main()
 }
 
 ```
+## Expected output
+The above code is expected to produce the following outputQ
+
+```
+Iteration    50,  optimal fitness value     2.022464
+Iteration   100,  optimal fitness value     2.023973
+Iteration   150,  optimal fitness value     2.023984
+Iteration   200,  optimal fitness value     2.023985
+Iteration   250,  optimal fitness value     2.023985
+Iteration   300,  optimal fitness value     2.023985
+Iteration   350,  optimal fitness value     2.023985
+Iteration   400,  optimal fitness value     2.023985
+Iteration   450,  optimal fitness value     2.023985
+Iteration   500,  optimal fitness value     2.023985
+
+
+-------------------------------
+| Parameter | Parameter value |
+-------------------------------
+|        x= |        0.709295 |
+|        y= |        0.902860 |
+|        z= |        0.787904 |
+-------------------------------
+```
+
 ## Genetic Algorithm parameters
 The above example runs with the default parameters. The following parameters can be specified with set methods.
 ### Mutation Rate
