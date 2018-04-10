@@ -148,32 +148,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="chromosome.h" />
-    <ClInclude Include="crossover.h" />
-    <ClInclude Include="ga.h" />
-    <ClInclude Include="gealib.h" />
-    <ClInclude Include="mutation.h" />
-    <ClInclude Include="mutation_singlebit.h" />
-    <ClInclude Include="parameter.h" />
-    <ClInclude Include="random_generator.h" />
-    <ClInclude Include="selection.h" />
-    <ClInclude Include="selection_rws.h" />
-    <ClInclude Include="typedefs.h" />
-    <ClInclude Include="util.h" />
-    <ClInclude Include="crossover_onepoint.h" />
-    <ClInclude Include="crossover_uniform.h" />
+    <ClCompile Include="..\gealib\chromosome.cpp" />
+    <ClCompile Include="..\gealib\crossover_onepoint.cpp" />
+    <ClCompile Include="..\gealib\crossover_uniform.cpp" />
+    <ClCompile Include="..\gealib\ga.cpp" />
+    <ClCompile Include="..\gealib\mutation_singlebit.cpp" />
+    <ClCompile Include="..\gealib\parameter.cpp" />
+    <ClCompile Include="..\gealib\random_generator.cpp" />
+    <ClCompile Include="..\gealib\selection_rws.cpp" />
+    <ClCompile Include="..\gealib\util.cpp" />
+    <ClCompile Include="..\gealib\_example.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chromosome.cpp" />
-    <ClCompile Include="ga.cpp" />
-    <ClCompile Include="mutation_singlebit.cpp" />
-    <ClCompile Include="parameter.cpp" />
-    <ClCompile Include="random_generator.cpp" />
-    <ClCompile Include="selection_rws.cpp" />
-    <ClCompile Include="util.cpp" />
-    <ClCompile Include="crossover_onepoint.cpp" />
-    <ClCompile Include="crossover_uniform.cpp" />
-    <ClCompile Include="_example.cpp" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="gealib.header" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\gealib\chromosome.h" />
+    <ClInclude Include="..\gealib\crossover.h" />
+    <ClInclude Include="..\gealib\crossover_onepoint.h" />
+    <ClInclude Include="..\gealib\crossover_uniform.h" />
+    <ClInclude Include="..\gealib\ga.h" />
+    <ClInclude Include="..\gealib\gealib.h" />
+    <ClInclude Include="..\gealib\mutation.h" />
+    <ClInclude Include="..\gealib\mutation_singlebit.h" />
+    <ClInclude Include="..\gealib\parameter.h" />
+    <ClInclude Include="..\gealib\random_generator.h" />
+    <ClInclude Include="..\gealib\selection.h" />
+    <ClInclude Include="..\gealib\selection_rws.h" />
+    <ClInclude Include="..\gealib\typedefs.h" />
+    <ClInclude Include="..\gealib\util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
