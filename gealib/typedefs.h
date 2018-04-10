@@ -3,11 +3,14 @@
 
 #include <vector>
 
+
 #define float_t double
 #define longint unsigned long long
 
 typedef float_t(*fitness_function)(std::vector<float_t>&);
 
+namespace gealib {
+}
 
 #endif // ! TYPEDEFS_H
 
