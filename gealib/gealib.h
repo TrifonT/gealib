@@ -7,7 +7,6 @@ namespace gealib {
 	class ga;
 }
 
-
 #include "typedefs.h"
 #include "random_generator.h"
 #include "util.h"
