@@ -1,4 +1,6 @@
 #include <assert.h>
+#include <iostream>
+#include <iomanip>
 #include <ppl.h>
 #include "ga.h"
 #include "crossover.h"
@@ -175,7 +177,7 @@ void gealib::ga::evaluate()
 		size_t pos = 0;
 		// ... get the values of the parameters from chromosome ...
 		thread_local vector<float_t> pars(pcount);
-		for (size_t i=0;i<pcount;i++)
+		for (size_t i = 0; i < pcount; i++)
 		{
 			pars[i] = p[i].get(chr, pos);
 			pos += p[i].bits;
@@ -189,7 +191,7 @@ void gealib::ga::evaluate()
 
 void gealib::ga::sort_current()
 {
-	std::sort(current.begin(), current.end(), 
+	std::sort(current.begin(), current.end(),
 		[](const chromo_ptr a, const chromo_ptr b)
 	{ return (a->fitness > b->fitness); });
 }
@@ -207,7 +209,7 @@ void gealib::ga::step()
 
 	size_t mxsz = crosize - 1;
 	crossover& corf = crossover_ref;
-	
+
 	// mate chromosomes and create children
 	parallel_for(eltsize, popsize, [&childs, mates, mxsz, &corf](size_t i) {
 		size_t i1 = random_generator::get_long(0, mxsz);
@@ -232,17 +234,65 @@ void gealib::ga::step()
 
 	// evaluate fitness function for current population
 	evaluate();
-	
+
 	// sort current population according to fitness value
 	sort_current();
 
 	// get the optimal value for each parameter from 
 	// the chromosome with greatest fitnesss value.
 	size_t pos = 0;
-	for (size_t i = 0; i< params.size(); ++i)
+	for (size_t i = 0; i < params.size(); ++i)
 	{
 		params[i].value = params[i].get(current[0], pos);
 		pos += params[i].bits;
 	}
+}
+
+// Runs optimization
+
+void gealib::ga::run(size_t iterations, size_t disp_progress, bool show_results)
+{
+	init();
+	evaluate();
+	sort_current();
+	size_t cnt = 0;
+	while (cnt < iterations)
+	{
+		step();
+		cnt++;
+		if ((disp_progress > 0) && ((cnt%disp_progress) == 0))
+			display_progress(cnt);
+	}
+	if ((disp_progress > 0) && ((cnt%disp_progress) != 0))
+		display_progress(cnt);
+
+	if (show_results)
+		print_params();
+}
+
+// Displays progress among iterations
+
+void gealib::ga::display_progress(size_t iteration)
+{
+	cout << "Iteration " << setw(5) << right << iteration;
+	cout << ",  optimal fitness value ";
+	cout << setw(12) << setprecision(6) << right << fixed << current[0]->fitness << endl;
+}
+
+// Prints optimized parameters
+
+void gealib::ga::print_params()
+{
+	cout << endl << endl << "-------------------------------" << endl;
+	cout << "| Parameter | Parameter value |" << endl;
+	cout << "-------------------------------" << endl;
+
+	for (int i = 0; i < params.size(); ++i)
+	{
+		cout << "| " << setw(8) << right << params[i].name << "= | ";
+		cout << setw(15) << setprecision(6) << fixed << right << params[i].value << " |" << endl;		
+	}
+	cout << "-------------------------------" << endl;
+	
 }
 

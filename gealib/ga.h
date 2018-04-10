@@ -92,46 +92,13 @@ namespace gealib
 		void step();
 
 		// Runs optimization
-		void run(size_t iterations = 20, size_t disp_progress = 10, bool show_results = true)
-		{
-			init();
-			evaluate();
-			sort_current();
-			size_t cnt = 0;
-			while (cnt < iterations)
-			{
-				step();
-				cnt++;
-				if ((disp_progress > 0) && ((cnt%disp_progress) == 0))
-					display_progress(cnt);
-			}
-			if ((disp_progress > 0) && ((cnt%disp_progress) != 0))
-				display_progress(cnt);
-
-			if (show_results)
-				print_params();
-		}
+		void run(size_t iterations = 100, size_t disp_progress = 10, bool show_results = true);
 
 		// Displays progress among iterations
-		void display_progress(size_t iteration)
-		{
-			printf("Iteration %5zu, best fitness value %12.6f\n", iteration, current[0]->fitness);
-		}
+		void display_progress(size_t iteration);
 
 		// Prints optimized parameters
-		void print_params()
-		{
-			printf("\n");
-			printf("-------------------------------\n");
-			printf("| Parameter | Parameter value |\n");
-			printf("-------------------------------\n");
-
-			for (int i = 0; i < params.size(); ++i)
-			{
-				printf("| %8s= | %15.6f |\n", params[i].name, params[i].value);
-			}
-			printf("-------------------------------\n");
-		}
+		void print_params();
 
 	};
 }
