@@ -72,12 +72,12 @@ Specifies the fitness function to be used
 ```C++
 ga.set_fitness_function(function);
 ```
-### Set Crossover Method
+### Crossover Method
 Specifies the crossover method to be used. Should be an instance of a class inheriting from `gealib::crossover`.
 ```C++
 ga.set_crossover(crossover);
 ```
-### Set Mutation Method
+### Mutation Method
 Specifies the mutation method to be used. Should be an instance of a class inheriting from `gealib::mutation`.
 ```C++
 ga.set_mutation(mutation);
