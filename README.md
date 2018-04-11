@@ -12,13 +12,13 @@ using namespace gealib;
 # define PI 3.14159265358979323846
 
 // This is the fitness function we want to maximize
-double myfunction(vector<double>& v)
+ftype myfunction(vector<ftype>& v)
 {
-	double x = v[0];
-	double y = v[1];
-	double z = v[2];
-
-	return sin(1.3 * x*PI + 1.33 * cos(10 * y*PI + 0.01 * cos(0.22* z*PI))) + sin(z * 2) + 0.01*( x + y + z);
+	ftype x = v[0];
+	ftype y = v[1];
+	ftype z = v[2];
+	
+	return  (ftype) (sin(1.3 * x*PI + 1.33 * cos(10 * y*PI + 0.01 * cos(0.22* z*PI))) + sin(z * 2) + 0.01*(x + y + z));
 }
 
 int main()
@@ -107,5 +107,3 @@ Specifies the mutation method to be used. Should be an instance of a class inher
 ```C++
 ga.set_mutation(mutation);
 ```
-
-
