@@ -3,11 +3,11 @@
 
 #include <vector>
 
-#define float_t double
-#define longint unsigned long long
+typedef float ftype;
+typedef unsigned long long longint;
 
 // fitness function prototype
-typedef float_t(*fitness_function)(std::vector<float_t>&);
+typedef ftype(*fitness_function)(std::vector<ftype>&);
 
 #endif // ! TYPEDEFS_H
 

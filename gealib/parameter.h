@@ -12,22 +12,22 @@ namespace gealib
 	{
 	private:
 		// Computes steps among min and max
-		void compute_steps(float_t step);
+		void compute_steps(ftype step);
 	public:
 		// Name of the parameter
 		std::string	name;
 
 		// Lower limit of parameter value
-		float_t	min;
+		ftype	min;
 
 		// Upper limit of parameter value
-		float_t	max;
+		ftype	max;
 
 		// Optimized parameter value
-		float_t	value;
+		ftype	value;
 
 		// Step for parameter values
-		float_t	fstep;
+		ftype	fstep;
 
 		// Number of chromosome bits to use
 		int	bits;
@@ -37,16 +37,16 @@ namespace gealib
 
 		// Create a new parameter specifying its name, min, max values 
 		// and required accuracy
-		parameter(std::string name, float_t min, float_t max, float_t step);
+		parameter(std::string name, ftype min, ftype max, ftype step);
 
 		// Create a new paramter specifying min, max and accuracy
-		parameter(float_t min, float_t max, float_t step);
+		parameter(ftype min, ftype max, ftype step);
 
 		// Gets the value of the parameter from a specified chromosome position
-		float_t get(const chromo_ptr chromo, size_t pos) const;
+		ftype get(const chromo_ptr chromo, size_t pos) const;
 
 		// Writes a value for the parameter in a specified chromosome position
-		void set(chromo_ptr chromo, size_t pos, float_t rval) const;
+		void set(chromo_ptr chromo, size_t pos, ftype rval) const;
 	};
 
 	using parameters = std::vector<parameter>;

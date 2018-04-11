@@ -9,7 +9,7 @@ namespace gealib
 		thread_local std::random_device rd;
 		static thread_local std::default_random_engine re = std::default_random_engine(rd());
 		thread_local std::uniform_int_distribution<int> bd = std::uniform_int_distribution<int>(0, 1);
-		thread_local std::uniform_real_distribution<float_t> fd = std::uniform_real_distribution<float_t>(0.0f, 1.0f);
+		thread_local std::uniform_real_distribution<ftype> fd = std::uniform_real_distribution<ftype>(0.0f, 1.0f);
 
 		bool get_bool()
 		{
@@ -28,14 +28,14 @@ namespace gealib
 			return id(re);
 		}
 
-		float_t get_float()
+		ftype get_float()
 		{
 			return fd(re);
 		}
 
-		float_t get_float(float_t min, float_t max)
+		ftype get_float(ftype min, ftype max)
 		{
-			std::uniform_real_distribution<float_t> f(min, max);
+			std::uniform_real_distribution<ftype> f(min, max);
 			return f(re);
 		}
 	}

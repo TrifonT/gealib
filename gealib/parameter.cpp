@@ -6,7 +6,7 @@
 
 using namespace gealib;
 
-void parameter::compute_steps(float_t step)
+void parameter::compute_steps(ftype step)
 {
 	assert(step <= max - min);
 	longint s = uround((max - min) / step);
@@ -18,23 +18,23 @@ void parameter::compute_steps(float_t step)
 	fstep = (max - min) / s;
 }
 
-parameter::parameter(std::string parname, float_t minv, float_t maxv, float_t step) : name(parname), min(minv), max(maxv)
+parameter::parameter(std::string parname, ftype minv, ftype maxv, ftype step) : name(parname), min(minv), max(maxv)
 {
 	compute_steps(step);
 }
 
-parameter::parameter(float_t minv, float_t maxv, float_t step) : name(""), min(minv), max(maxv)
+parameter::parameter(ftype minv, ftype maxv, ftype step) : name(""), min(minv), max(maxv)
 {
 	compute_steps(step);
 }
 
-float_t parameter::get(const chromo_ptr chromo, size_t pos) const
+ftype parameter::get(const chromo_ptr chromo, size_t pos) const
 {
 	longint val = chromo->get(pos, bits);
 	return  std::min((min + val * fstep), max);
 }
 
-void parameter::set(chromo_ptr chromo, size_t pos, float_t rval) const
+void parameter::set(chromo_ptr chromo, size_t pos, ftype rval) const
 {
 	longint ival = uround((rval - min) / fstep);
 	chromo->set(pos, bits, ival);

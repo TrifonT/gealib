@@ -8,7 +8,7 @@ namespace gealib
 	class mutation
 	{
 	public:
-		float_t probability;
+		ftype probability;
 		virtual void mutate(chromo_ptr chrome) const = 0;
 	};
 }

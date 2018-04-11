@@ -1,4 +1,5 @@
 #include "util.h"
+#include <math.h>
 #include <type_traits>
 
 using namespace gealib;
@@ -6,9 +7,9 @@ using namespace gealib;
 #pragma warning(push)
 #pragma warning(disable:4244)
 
-longint gealib::uround(float_t val)
+longint gealib::uround(ftype val)
 {
-	if (std::is_same<float_t, double>::value)
+	if (std::is_same<ftype, double>::value)
 	{
 		if (sizeof(longint) == 64)
 			return std::llround(val);

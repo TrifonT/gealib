@@ -36,7 +36,7 @@ namespace gealib
 		virtual std::string to_string() const;
 		
 		// Stores the fitness value of the last evaluation
-		float_t fitness;
+		ftype fitness;
 	};
 
 	using chromo_ptr = std::shared_ptr<chromosome>;

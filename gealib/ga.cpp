@@ -9,7 +9,7 @@
 using namespace gealib;
 using namespace concurrency;
 
-gealib::ga::ga(fitness_function func, size_t popsize, float_t crossrate, float_t mutrate, float_t eliterate) :
+gealib::ga::ga(fitness_function func, size_t popsize, ftype crossrate, ftype mutrate, ftype eliterate) :
 	fitfunction(func),
 	popsize(popsize),
 	crate(crossrate),
@@ -29,7 +29,7 @@ void ga::add_parameter(parameter param)
 
 // Constructs and then adds a parameter to the genetic algorithm
 
-parameter gealib::ga::add_parameter(string name, float_t min, float_t max, float_t step)
+parameter gealib::ga::add_parameter(string name, ftype min, ftype max, ftype step)
 {
 	parameter p(name, min, max, step);
 	params.push_back(p);
@@ -37,39 +37,39 @@ parameter gealib::ga::add_parameter(string name, float_t min, float_t max, float
 }
 
 // Gets the mutation rate
-float_t ga::get_mutation_rate()
+ftype ga::get_mutation_rate()
 {
 	return mrate;
 }
 
 // Sets the mutation rate
-void ga::set_mutation_rate(float_t rate)
+void ga::set_mutation_rate(ftype rate)
 {
 	assert(rate >= 0 && rate <= 1.0);
 	mrate = rate;
 }
 
 // Gets the crossover rate
-float_t ga::get_crossover_rate()
+ftype ga::get_crossover_rate()
 {
 	return crate;
 }
 
 // Sets the crossover rate
-void ga::set_crossover_rate(float_t rate)
+void ga::set_crossover_rate(ftype rate)
 {
 	assert(rate > 0 && rate <= 1.0);
 	crate = rate;
 }
 
 // Gets the elite rate
-float_t ga::get_elite_rate()
+ftype ga::get_elite_rate()
 {
 	return erate;
 }
 
 // Sets the elite rate
-void ga::set_elite_rate(float_t rate)
+void ga::set_elite_rate(ftype rate)
 {
 	assert(rate >= 0 && rate < 1.0);
 	erate = rate;
@@ -169,7 +169,7 @@ void gealib::ga::evaluate()
 	{
 		size_t pos = 0;
 		// ... get the values of the parameters from chromosome ...
-		thread_local vector<float_t> pars(pcount);
+		thread_local vector<ftype> pars(pcount);
 		for (size_t i = 0; i < pcount; i++)
 		{
 			pars[i] = p[i].get(chr, pos);
@@ -211,7 +211,7 @@ void gealib::ga::step()
 	});
 
 	// perform mutation on children
-	float_t murate = mrate;
+	ftype murate = mrate;
 	mutation& mref = mutation_ref;
 	mref.probability = mrate;
 	parallel_for(eltsize, popsize, [&childs, murate, &mref](size_t i)

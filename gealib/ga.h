@@ -10,9 +10,9 @@ namespace gealib
 	{
 	private:
 		parameters params;
-		float_t erate = 0.1;
-		float_t mrate = 0.03;
-		float_t crate = 0.5;
+		ftype erate = 0.1f;
+		ftype mrate = 0.03f;
+		ftype crate = 0.5f;
 
 		size_t chrsize;
 		size_t popsize;
@@ -31,32 +31,32 @@ namespace gealib
 		selection& selection_ref;
 	public:
 
-		ga(fitness_function func, size_t popsize = 1024, float_t mutrate = 0.1, float_t crossrate = 0.5f,
-			 float_t eliterate = 0.1);
+		ga(fitness_function func, size_t popsize = 1024, ftype mutrate = 0.1, ftype crossrate = 0.5f,
+			 ftype eliterate = 0.1);
 
 		// Adds a parameter to the genetic algorithm
 		void add_parameter(parameter param);
 
 		// Constructs and then adds a parameter to the genetic algorithm
-		parameter add_parameter(string name, float_t min, float_t max, float_t step);
+		parameter add_parameter(string name, ftype min, ftype max, ftype step);
 
 		// Gets the mutation rate
-		float_t get_mutation_rate();
+		ftype get_mutation_rate();
 
 		// Sets the mutation rate
-		void set_mutation_rate(float_t rate);
+		void set_mutation_rate(ftype rate);
 
 		// Gets the crossover rate
-		float_t get_crossover_rate();
+		ftype get_crossover_rate();
 
 		// Sets the crossover rate
-		void set_crossover_rate(float_t rate);
+		void set_crossover_rate(ftype rate);
 
 		// Gets the elite rate
-		float_t get_elite_rate();
+		ftype get_elite_rate();
 
 		// Sets the elite rate
-		void set_elite_rate(float_t rate);
+		void set_elite_rate(ftype rate);
 
 		// Gets population size
 		size_t get_population_size();

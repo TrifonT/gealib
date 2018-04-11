@@ -5,7 +5,7 @@
 
 namespace gealib
 {
-	longint uround(float_t val);	
+	longint uround(ftype val);	
 }
 
 #endif // ! UTIL_H
