@@ -1,5 +1,4 @@
 #include "selection_rws.h"
-
 #include <vector>
 #include <algorithm>
 #include "typedefs.h"
@@ -9,7 +8,7 @@ void gealib::selection_rws::select(chromo_vec & current, chromo_vec & selected)
 	size_t count = selected.size();
 	std::vector<ftype> values;
 	values.reserve(current.size());
-	ftype minv = DBL_MAX;
+	ftype minv = FLT_MAX;
 	std::for_each(current.begin(), current.end(), [&minv, &values](chromo_ptr p){
 		ftype f = p->fitness;
 		values.push_back(f); 

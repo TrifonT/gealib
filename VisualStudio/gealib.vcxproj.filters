@@ -102,7 +102,4 @@
       <Filter>Header Files\utility</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\CMakeLists.txt" />
-  </ItemGroup>
 </Project>

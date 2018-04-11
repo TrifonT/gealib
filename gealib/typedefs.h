@@ -3,7 +3,7 @@
 
 #include <vector>
 
-typedef float ftype;
+typedef double ftype;
 typedef unsigned long long longint;
 
 // fitness function prototype
