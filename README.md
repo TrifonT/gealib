@@ -46,7 +46,7 @@ int main()
 
 ```
 ## Expected output
-The above code is expected to produce the following outputQ
+The above code is expected to produce the following output:
 
 ```
 Iteration    50,  optimal fitness value     2.022464
