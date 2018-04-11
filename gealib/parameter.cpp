@@ -28,13 +28,13 @@ parameter::parameter(float_t minv, float_t maxv, float_t step) : name(""), min(m
 	compute_steps(step);
 }
 
-float_t parameter::get(std::shared_ptr<chromosome> chromo, size_t pos)
+float_t parameter::get(const chromo_ptr chromo, size_t pos) const
 {
 	longint val = chromo->get(pos, bits);
 	return  std::min((min + val * fstep), max);
 }
 
-void parameter::set(std::shared_ptr<chromosome> chromo, size_t pos, float_t rval)
+void parameter::set(chromo_ptr chromo, size_t pos, float_t rval) const
 {
 	longint ival = uround((rval - min) / fstep);
 	chromo->set(pos, bits, ival);

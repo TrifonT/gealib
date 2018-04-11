@@ -9,7 +9,7 @@ namespace gealib
 	{
 	public:
 		float_t probability;
-		virtual void mutate(chromo_ptr chrome) = 0;
+		virtual void mutate(chromo_ptr chrome) const = 0;
 	};
 }
 

@@ -8,7 +8,7 @@ namespace gealib
 	class crossover_onepoint : public crossover
 	{
 	public:
-		chromo_ptr cross(chromo_ptr a, chromo_ptr b) override;
+		chromo_ptr cross(const chromo_ptr a, const chromo_ptr b) const override;
 	};
 }
 

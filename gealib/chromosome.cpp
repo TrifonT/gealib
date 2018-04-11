@@ -8,12 +8,12 @@ chromosome::chromosome() : vector<bool>()
 }
 
 // Creates a chromosome of specidied size
-chromosome::chromosome(size_t size) : vector<bool>(size)
+chromosome::chromosome(const size_t size) : vector<bool>(size)
 {
 }
 
 // Encodes an area of the chromosome as integer
-longint chromosome::get(size_t pos, size_t bits)
+longint chromosome::get(size_t pos, size_t bits) const
 {
 	longint val = 0;
 	longint bit = 1;
@@ -48,7 +48,7 @@ void chromosome::randomize()
 }
 
 // Converts chromosome to a string of 0/1
-std::string chromosome::to_string()
+std::string chromosome::to_string() const
 {
 	std::stringstream ss;
 	for (auto it = begin(); it != end(); it++)

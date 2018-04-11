@@ -5,7 +5,7 @@
 
 using namespace gealib::random_generator;
 
-gealib::chromo_ptr gealib::crossover_onepoint::cross(chromo_ptr a, chromo_ptr b)
+gealib::chromo_ptr gealib::crossover_onepoint::cross(const chromo_ptr a, const chromo_ptr b) const
 {
 	size_t size = a->size();
 	assert(size == b->size());

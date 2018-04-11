@@ -4,7 +4,7 @@
 
 using namespace gealib;
 
-chromo_ptr xo_uniform::cross(chromo_ptr a, chromo_ptr b)
+chromo_ptr xo_uniform::cross(const chromo_ptr a, const chromo_ptr b) const
 {
 	size_t size = a->size();
 	assert(size == b->size());

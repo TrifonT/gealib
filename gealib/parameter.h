@@ -5,7 +5,6 @@
 #include "typedefs.h"
 #include "chromosome.h"
 
-
 namespace gealib
 {
 	// Represents a computed parameter
@@ -44,10 +43,10 @@ namespace gealib
 		parameter(float_t min, float_t max, float_t step);
 
 		// Gets the value of the parameter from a specified chromosome position
-		float_t get(std::shared_ptr<chromosome> chromo, size_t pos);
+		float_t get(const chromo_ptr chromo, size_t pos) const;
 
 		// Writes a value for the parameter in a specified chromosome position
-		void set(std::shared_ptr<chromosome> chromo, size_t pos, float_t rval);
+		void set(chromo_ptr chromo, size_t pos, float_t rval) const;
 	};
 
 	using parameters = std::vector<parameter>;

@@ -8,7 +8,7 @@ namespace gealib
 	class crossover
 	{
 	public:
-		virtual chromo_ptr cross(chromo_ptr a, chromo_ptr b) = 0;
+		virtual chromo_ptr cross(const chromo_ptr  a, const chromo_ptr  b) const = 0;
 	};
 }
 

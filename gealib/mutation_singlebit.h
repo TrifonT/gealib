@@ -9,7 +9,7 @@ namespace gealib
 	class mutation_singlebit : public mutation
 	{
 	public:
-		void mutate(chromo_ptr chromo) override;
+		void mutate(chromo_ptr chromo) const override;
 	};
 }
 

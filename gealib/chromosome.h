@@ -21,19 +21,19 @@ namespace gealib
 		chromosome(size_t size);
 		
 		// Encodes an area of the chromosome as an integer
-		longint get(size_t pos, size_t bits);
+		longint get(size_t pos, size_t bits) const;
 		
 		// Sets an area of the chromosome decoding an integer
 		void set(size_t pos, size_t bits, longint value);
 		
 		// Flips a single bit at index location
-		void flip(size_t index);
+		void flip(const size_t index);
 		
 		// Fills chromosome with random values
 		virtual void randomize();
 		
 		// Converts chromosome to a string of 0/1
-		virtual std::string to_string();
+		virtual std::string to_string() const;
 		
 		// Stores the fitness value of the last evaluation
 		float_t fitness;
